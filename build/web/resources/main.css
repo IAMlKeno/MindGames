@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-Jun-2017, 7:50:58 AM
+    Author     : Elkeno
+*/
+
+.ideaGrid{
+    text-align: center;
+    margin: auto;
+}
+
+.ideaCard{
+    margin: auto;
+}
+.ideaForm{
+    float: right;
+    margin-right: 2cm;
+    margin-top: 2cm;
+}
