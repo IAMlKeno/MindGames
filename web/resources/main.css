@@ -11,13 +11,51 @@ and open the template in the editor.
 .ideaGrid{
     text-align: center;
     margin: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-left: 10px;
 }
 
 .ideaCard{
     margin: auto;
+    margin-bottom: 10px;
+    display: inline-block;
 }
+
+.ideaTitleDiv{
+    border:2px groove black; 
+    margin:2%;
+}
+
 .ideaForm{
     float: right;
     margin-right: 2cm;
     margin-top: 2cm;
+}
+
+.rating{
+    margin-left:auto;
+}
+
+.ideaFeatureTitle{
+    text-align: left;
+}
+
+.statusCheckboxDivs{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 80%;
+}
+
+.developIdeaButton{
+    width:80%;
+}
+
+.ideaCardFeatureList{
+    text-align: left;
+}
+
+.mdl-card__supporting-text{
+    border: 2px groove black; 
+    margin:2%;
 }

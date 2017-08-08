@@ -1,21 +1,64 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<div class="mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-        <h4 class="mdl-card__title-text">Idea 1</h4>
-    </div>
-    <div class="mdl-card__supporting-text">
-        <c:forEach items="${features}" var="feature">
-        <ul class="mdl-list">
-            <li class="mdl-list__item mdl-list__item--two-line">
-                <span class="mdl-list__item-primary-content">
-                    <i class="material-icons mdl-list__item-icon">stop</i>
-                    <span>
-                        ${feature}
-                    </span>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
+<c:set var="i" value="0"/>
+<c:forEach items="${ideaList}" var="s">
+    <form:form action="/MindGames/develop" modelAttribute="${s}" method="POST">
+        ${s.ideaTitle}
+
+        <div class="mdl-card mdl-shadow--2dp ideaCard">
+            <div class="mdl-card__title ideaTitleDiv">
+                <h4 class="mdl-card__title-text">
+                    ${s.ideaTitle}
+                </h4>
+                <span class="rating">&#40;10&#41;</span>
+            </div>
+            <div class="progress statusCheckboxDivs">
+                Is this idea in progress?&nbsp;
+                <span class="statusCheckboxSpan">
+                    <input type="checkbox" class="statusCheckbox" onclick="changeStatus($(this))"/>
+                    
+                    <%--<form:checkbox path="idea[${i}].isInProgress" onclick="changeStatus($(this))" />--%>
+                    <!--${s.isInProgress} ${i}-->
                 </span>
-            </li>
-        </ul>
-        </c:forEach>
-    </div>
-</div>
+            </div>
+            <div class="complete statusCheckboxDivs">
+                Is this idea complete?&nbsp;
+                <span class="statusCheckboxSpan">
+                    <input type="checkbox" class="statusCheckbox" onclick="changeStatus($(this))"/>
+                    <%--<form:checkbox path="${s.isComplete}" onclick="changeStatus($(this))"/>--%>
+                </span>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <%--
+                <div class="progress">Is this idea in progress?&nbsp;<span class=""><form:checkbox path="${s.inProgress}"/></span></div>
+                <div class="complete">Is this idea complete?&nbsp;<span class=""><form:checkbox path="${s.isComplete}"/></span></div>
+                --%>
+                <h5 class="ideaFeatureTitle">
+                    Features:
+                </h5>
+<%--                <c:forEach items="${s.features}" var="feat">
+                    <ul class="mdl-list">
+                        <li class="mdl-list__item mdl-list__item--two-line ideaCardFeatureList">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon">stop</i>
+                                <span>
+                                    ${feat.featureTitle}
+                                </span>
+                                <span class="mdl-list__item-sub-title">
+                                    ${feat.descriptionShort}
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </c:forEach> --%>
+            </div>
+            <div class="mdl-card__actions">
+                <input type="submit" class="mdl-button mdl-js-button 
+                       mdl-button--colored mdl-button--raised developIdeaButton" 
+                       value="Develop Idea" />
+            </div>
+        </div>
+    </form:form>
+</c:forEach>

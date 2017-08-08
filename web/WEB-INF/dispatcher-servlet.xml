@@ -8,15 +8,15 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-       http://www.springframework.org/schema/aop    
-        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-       http://www.springframework.org/schema/tx 
-        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-        http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context.xsd
-    http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/aop    
+            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/tx 
+            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
@@ -28,22 +28,7 @@
           p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" >
         <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView" />
     </bean>
-          <!--
-    Most controllers will use the ControllerClassNameHandlerMapping above, but
-    for the index controller we are using ParameterizableViewController, so we must
-    define an explicit mapping for it.
-    -->
-<!--    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="index.htm">indexController</prop>
-            </props>
-        </property>
-    </bean>-->
 
-    
-
-    <!-- Register the Customer.properties -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="controller/Name" />
     </bean>
@@ -56,10 +41,4 @@
     
     <mvc:resources mapping="/WEB-INF/resources/*" location="/resources"
 	cache-period="31556926"/>
-    
-    <!--<bean name="/hello.htm" class="controller.HelloController" p:helloService-ref="helloService"/>-->
-    <!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>-->
-    
-    <!--<bean name="/hello.htm" class="src.java.contoller.HelloController" />-->
-
 </beans>

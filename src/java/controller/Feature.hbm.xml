@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8-Aug-2017 1:19:04 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Feature" table="feature" catalog="mindgames">
+        <id name="featureId" type="java.lang.Integer">
+            <column name="featureId" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="idea" class="hibernate.Idea" fetch="select">
+            <column name="ideaId" not-null="true" />
+        </many-to-one>
+        <property name="descriptionShort" type="string">
+            <column name="descriptionShort" length="128" not-null="true" />
+        </property>
+        <property name="descriptionLong" type="binary">
+            <column name="descriptionLong" />
+        </property>
+    </class>
+</hibernate-mapping>
