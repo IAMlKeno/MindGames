@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8-Aug-2017 9:19:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Idea" table="idea" catalog="mindgames" optimistic-lock="version">
+        <id name="ideaId" type="java.lang.Integer">
+            <column name="ideaId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="userId" not-null="true" />
+        </many-to-one>
+        <property name="ideaTitle" type="string">
+            <column name="ideaTitle" not-null="true" unique="true" />
+        </property>
+        <property name="alias" type="string">
+            <column name="alias" length="24" not-null="true" unique="true" />
+        </property>
+        <property name="descriptionShort" type="string">
+            <column name="descriptionShort" length="128" not-null="true" />
+        </property>
+        <property name="descriptionLong" type="binary">
+            <column name="descriptionLong" />
+        </property>
+        <property name="isInProgress" type="boolean">
+            <column name="isInProgress" not-null="true" />
+        </property>
+        <property name="isCompleted" type="boolean">
+            <column name="isCompleted" not-null="true" />
+        </property>
+        <property name="rating" type="string">
+            <column name="rating" length="1" />
+        </property>
+        <property name="dateCreated" type="date">
+            <column name="dateCreated" length="10" />
+        </property>
+        <set name="features" table="feature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ideaId" not-null="true" />
+            </key>
+            <one-to-many class="model.Feature" />
+        </set>
+    </class>
+</hibernate-mapping>
