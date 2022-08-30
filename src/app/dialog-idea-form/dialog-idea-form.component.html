@@ -1,0 +1,33 @@
+<div id="modal-content-wrapper">
+  <header id="modal-header">
+    <h1 id="modal-title">Are you sure you want to logout?</h1>
+  </header>
+  <form [formGroup]="ideaForm">
+    <section id="modal-body">
+      <div>
+        <label for="title">
+          Title
+        </label>
+        <input id="title" type="text" formControlName="title">
+      </div>
+
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input id="description" type="text" formControlName="description">
+      </div>
+
+      <div>
+        <label for="id">
+          ID
+        </label>
+        <input id="id" type="text" formControlName="id">
+      </div>
+    </section>
+    <footer id="modal-footer">
+      <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Add Idea</button>
+      <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">Go back</button>
+    </footer>
+  </form>
+</div>
